@@ -25,25 +25,23 @@ __all__ = ['SpinReversalTransformComposite']
 # versionadded (0.6.8) to the __init__ file for context manager
 
 class SpinReversalTransformComposite(ComposedSampler):
-    """Composite for applying spin reversal transform preprocessing.
+    r"""Composite for applying spin reversal transform preprocessing.
 
-    A spin-reversal transform can improve sample statistics when the 
-    sampler is a physical object with asymmetries such as a QPU.
-    The technique works as follows: given an :math:`n`-variable Ising 
-    problem, the composite selects a random :math:`g\in\{\pm1\}^n` and 
-    transforms the problem via :math:`h_i\mapsto h_ig_i` and 
-    :math:`J_{ij}\mapsto J_{ij}g_ig_j`. Solutions :math:`s` of the 
-    original problem and :math:`s^\prime` of the transformed problem 
-    are related by :math:`s^\prime_i=s_ig_i` and have identical energies. 
-    [#km]_
+    A spin-reversal transform can improve sample statistics when the sampler is
+    a physical object with asymmetries such as a QPU.
+    The technique works as follows: given an :math:`n`-variable Ising problem,
+    the composite selects a random :math:`g\in\{\pm1\}^n` and transforms the
+    problem via :math:`h_i\mapsto h_ig_i` and
+    :math:`J_{ij}\mapsto J_{ij}g_ig_j`. Solutions :math:`s` of the original
+    problem and :math:`s^\prime` of the transformed problem are related by
+    :math:`s^\prime_i=s_ig_i` and have identical energies.\ [#km]_
 
     .. note::
         If you are configuring an anneal schedule, be mindful that this
-        composite does not recognize the ``initial_state`` parameter 
-        used by dimod's :class:`~dwave.system.samplers.DWaveSampler` for 
-        reverse annealing (composites do not generally process all keywords 
-        of child samplers) and does not flip any of the configured initial 
-        states. 
+        composite does not recognize the ``initial_state`` parameter used by
+        dimod's :class:`~dwave.system.samplers.DWaveSampler` for reverse
+        annealing (composites do not generally process all keywords of child
+        samplers) and does not flip any of the configured initial states.
 
     Args:
         sampler: A `dimod` sampler object.
