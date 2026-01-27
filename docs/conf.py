@@ -27,7 +27,7 @@ extensions = [
 autosummary_generate = True
 
 # The suffix(es) of source filenames.
-source_suffix = ['.rst', '.md']
+source_suffix = {'.rst': 'restructuredtext', '.md': 'restructuredtext'}
 
 # The master toctree document.
 master_doc = 'index'
